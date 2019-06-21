@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/tabs/categorias"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{ categoria.linea }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <!--ion-list>
+        <ion-item *ngFor="let item of ps.porCategoria">
+
+            <ion-thumbnail item-left>
+                <img [src]="item.codigo | imagen">
+            </ion-thumbnail>
+
+            <h4>{{ item.producto}}</h4>
+            <p>{{ item.proveedor}}</p>
+            <ion-button item-right>
+                ver
+            </ion-button>
+
+        </ion-item>
+    </ion-list-->
+
+    <ion-list>
+        <ion-item *ngFor="let item of ps.porCategoria">
+            <ion-avatar slot="start">
+                <img img [src]="item.codigo | imagen">
+            </ion-avatar>
+            <ion-label>
+
+                <h4>{{ item.producto}}</h4>
+                <h3>{{ item.proveedor}}</h3>
+            </ion-label>
+            <ion-button (click)="enviarProducto(item)" class="top-20" fill="clear">Ver</ion-button>
+
+        </ion-item>
+    </ion-list>
+
+</ion-content>

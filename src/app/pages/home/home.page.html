@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button color="primary" (click)="us.cerrarSesion()" *ngIf="us.activo()">Salir</ion-button>
+        </ion-buttons>
+        <ion-title>
+            Mi Tienda
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button color="primary" (click)="verCarrito()">
+                <ion-icon name="cart" class="carrito_vacio"></ion-icon>
+                <ion-badge color="danger" class="carrito-numero" *ngIf="cs.items.length > 0">
+                    {{cs.items.length}}
+                </ion-badge>
+
+            </ion-button>
+
+            &nbsp; &nbsp;
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-grid>
+        <ion-row *ngFor="let pares of ps.productos">
+            <ion-col *ngFor="let item of pares">
+                <img [src]="item.codigo | imagen" (click)="enviarProducto(item)">
+                <p>
+                    {{item.producto}}
+                    <br> {{item.precio_compra | currency: 'USD'}}
+                </p>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="siguinte_pagina($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>

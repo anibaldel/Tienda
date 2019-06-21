@@ -1,0 +1,19 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>ordenes</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item (click)="irDetalle(orden)" ion-item *ngFor="let orden of cs.ordenes">
+            <ion-label>Orden ID: {{ orden.id }}</ion-label>
+        </ion-item>
+
+    </ion-list>
+
+
+</ion-content>

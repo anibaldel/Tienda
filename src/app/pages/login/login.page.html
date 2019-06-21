@@ -1,0 +1,33 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button color="primary" (click)="salir()">Cerrar</ion-button>
+        </ion-buttons>
+        <ion-title text-capitalize>login</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+
+        <ion-item>
+            <ion-label fixed>Correo</ion-label>
+            <ion-input type="email" [(ngModel)]="correo"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label fixed>Contraseña</ion-label>
+            <ion-input type="password" [(ngModel)]="contrasena"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+    <ion-button [disabled]=" correo.length < 5 || contrasena.length < 5 " block (click)="ingresar()">
+        Ingresar
+    </ion-button>
+
+
+    <ion-button (click)="salir()">salir</ion-button>
+
+
+</ion-content>

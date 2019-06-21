@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+        <ion-title>Buscar productos</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-searchbar (ionInput)="buscarProductos($event)"></ion-searchbar>
+
+    <ion-list>
+        <ion-item (click)="abrirProducto(item)" *ngFor="let item of ps.resultados">
+            {{ item.producto }}
+        </ion-item>
+    </ion-list>
+
+
+</ion-content>

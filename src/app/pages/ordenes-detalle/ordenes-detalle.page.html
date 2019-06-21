@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Orden {{ orden.id }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-card mode="ios" *ngFor="let item of orden.detalle">
+        <img [src]="item.codigo | imagen">
+        <ion-card-header>
+            <ion-card-title>{{item.producto}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            {{ item.descripcion }}
+        </ion-card-content>
+        <p>
+            {{ item.precio_compra | currency:'USD':true }}
+        </p>
+    </ion-card>
+
+
+
+
+    <ion-button block color="danger" (click)="borrarOrden( orden.id )">
+        Borrar orden
+    </ion-button>
+
+</ion-content>
